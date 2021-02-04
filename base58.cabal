@@ -1,0 +1,40 @@
+cabal-version:      2.0
+name:               base58
+version:            0.1.0.0
+synopsis:           Modern, performant base58 encodings and decodings
+description:        A modern, performant base58 encodings and decodings
+homepage:           https://github.com/emilypi/base58
+bug-reports:        https://github.com/emilypi/base58/issues
+license:            BSD3
+license-file:       LICENSE
+author:             Emily Pillmore
+maintainer:         emilypi@cohomolo.gy
+copyright:          (c) 2021 Emily Pillmore
+category:           Data
+build-type:         Simple
+extra-source-files:
+  CHANGELOG.md
+  README.md
+
+tested-with:
+  GHC ==8.2.2 || ==8.4.4 || ==8.6.5 || ==8.8.4 || ==8.10.3
+
+library
+  exposed-modules:  MyLib
+  build-depends:
+      base ^>=4.14.1.0
+    , bytestring     ^>=0.10
+    , deepseq        >=1.4.3.0  && <1.4.5.0
+    , ghc-byteorder  ^>=4.11.0.0
+    , text           ^>=1.2
+    , text-short     ^>=0.1
+
+  hs-source-dirs:   src
+  default-language: Haskell2010
+
+test-suite base58-test
+  default-language: Haskell2010
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   test
+  main-is:          MyLibTest.hs
+  build-depends:    base ^>=4.14.1.0
